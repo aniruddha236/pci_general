@@ -58,34 +58,33 @@ bool PCIGeneral::initMotion() {
       pose.position.x = current_pose_.position.x;
       pose.position.y = current_pose_.position.y;
       pose.position.z = current_pose_.position.z + init_z_takeoff_;
-      pose.orientation.x = 0;
-      pose.orientation.y = 0;
-      pose.orientation.z = 0;
-      pose.orientation.w = 1;
+      pose.orientation.x = current_pose_.orientation.x;
+      pose.orientation.y = current_pose_.orientation.y;
+      pose.orientation.z = current_pose_.orientation.z;
+      pose.orientation.w = current_pose_.orientation.w;
       init_path.push_back(pose);
     }
-    {
-      geometry_msgs::Pose pose;
-      pose.position.x = current_pose_.position.x;
-      pose.position.y = current_pose_.position.y;
-      pose.position.z =
-          current_pose_.position.z + init_z_takeoff_ - init_z_drop_;
-      pose.orientation.x = 0;
-      pose.orientation.y = 0;
-      pose.orientation.z = 0;
-      pose.orientation.w = 1;
-      init_path.push_back(pose);
-    }
+    // {
+    //   geometry_msgs::Pose pose;
+    //   pose.position.x = current_pose_.position.x;
+    //   pose.position.y = current_pose_.position.y;
+    //   pose.position.z =
+    //       current_pose_.position.z + init_z_takeoff_ - init_z_drop_;
+    //   pose.orientation.x = 0;
+    //   pose.orientation.y = 0;
+    //   pose.orientation.z = 0;
+    //   pose.orientation.w = 1;
+    //   init_path.push_back(pose);
+    // }
     {
       geometry_msgs::Pose pose;
       pose.position.x = current_pose_.position.x + init_x_forward_;
       pose.position.y = current_pose_.position.y;
-      pose.position.z =
-          current_pose_.position.z + init_z_takeoff_ - init_z_drop_;
-      pose.orientation.x = 0;
-      pose.orientation.y = 0;
-      pose.orientation.z = 0;
-      pose.orientation.w = 1;
+      pose.position.z = current_pose_.position.z + init_z_takeoff_;
+      pose.orientation.x = current_pose_.orientation.x;
+      pose.orientation.y = current_pose_.orientation.y;
+      pose.orientation.z = current_pose_.orientation.z;
+      pose.orientation.w = current_pose_.orientation.w;
       init_path.push_back(pose);
     }
   } else {
